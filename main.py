@@ -2,6 +2,7 @@ from tkinter import *
 
 from BasicView import BasicView
 from DailyCheckInView import DailyCheckInView
+from ExerciseLogic import ExerciseLogic
 from FitnessBackgroundView import FitnessBackgroundView
 
 
@@ -15,20 +16,24 @@ class Main(BasicView):
         self.window = self.createWindow()
         self.window.config(padx=50, pady=50, bg=self.WHITE)
 
+        logic = ExerciseLogic()
+
         fitnessBackgroundView = FitnessBackgroundView(500, 500, "Registration Form", self.window)
         fitBkgBtn = self.createFitnessBackGroundButton(fitnessBackgroundView)
 
-        dailyCheckInView = DailyCheckInView(500, 500, "Daily Check-In", self.window)
+        dailyCheckInView = DailyCheckInView(500, 500, "Daily Check-In", self.window, logic)
         dailyCheckInButton = self.createDailyCheckInButton(dailyCheckInView)
 
     def createFitnessBackGroundButton(self, fitnessBackgroundView):
-        btn = Button(self.window, text="Input Fitness", fg="blue", command=fitnessBackgroundView.getInputForm)
-        btn.grid(row=3, column=2, columnspan=1, sticky="EW")
+        btn = Button(self.window, text="Input Fitness", fg="blue", font=("bold", 30),
+                     command=fitnessBackgroundView.getInputForm)
+        btn.pack(side=TOP)
         return btn
 
     def createDailyCheckInButton(self, dailyCheckInView):
-        btn = Button(self.window, text="Daily Check-In", fg="blue", command=dailyCheckInView.getDailyWindow)
-        btn.grid(row=2, column=2, columnspan=1, sticky="EW")
+        btn = Button(self.window, text="Daily Check-In", fg="blue", font=("bold", 30),
+                     command=dailyCheckInView.getDailyWindow)
+        btn.pack(side=TOP)
         return btn
 
 

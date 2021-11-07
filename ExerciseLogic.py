@@ -2,20 +2,35 @@ import random
 
 
 class ExerciseLogic:
-    lowExercises = []
-    moderateExercises = []
-    highExercises = []
+    lowExercises = ["casual walk", "stretch", "yoga", "Tai-Chi", "biking", "cross trainer"]
+    moderateExercises = ["brisk walking", "walking uphill", "strenuous yoga session", "push-ups", "sit-ups",
+                         "jump-rope"]
+    highExercises = ["weight training", "endurance exercises", "jogging", "cycling", "lap swimming", "circuit training",
+                     "sprints", "swimming"]
     exercises = {
-        {"Low": lowExercises},
-        {"Moderate": moderateExercises},
-        {"High": highExercises}
+        "low": lowExercises,
+        "moderate": moderateExercises,
+        "high": highExercises
     }
 
     suggestedExercise = ""
     exerciseLevel = ""
 
-    def __init__(self, exerciseLevel):
-        self.exerciseLevel = exerciseLevel
+    @staticmethod
+    def calculateExerciseLevel(answerTwo, answerThree):
+        if answerThree == "no":
+            if answerTwo == "poor" or answerTwo == "moderate":
+                return "low"
+            else:
+                return "moderate"
+        else:
+            if answerTwo == "poor" or answerTwo == "moderate":
+                return "moderate"
+            else:
+                return "high"
 
     def assignExercise(self):
-        self.suggestedExercise = random.choice(self.exercises[self.exerciseLevel])
+        return random.choice(self.exercises[self.exerciseLevel])
+
+    def setExerciseLevel(self, level):
+        self.exerciseLevel = level
