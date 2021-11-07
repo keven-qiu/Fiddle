@@ -1,8 +1,8 @@
 from tkinter import *
 
+import colours
 from BasicView import BasicView
 from ExerciseLogic import ExerciseLogic
-from colours import LIGHTBLUE
 
 
 class DailyCheckInView(BasicView):
@@ -23,7 +23,7 @@ class DailyCheckInView(BasicView):
 
     def getDailyWindow(self):
         self.window = self.createWindow()
-        self.window.config(padx=50, pady=50, bg=LIGHTBLUE)
+        self.window.config(padx=50, pady=50, bg=colours.PURPLE)
 
         self.frame = Frame(self.window)
         self.frame.pack(side="top", expand=True, fill=BOTH)
@@ -33,7 +33,7 @@ class DailyCheckInView(BasicView):
 
     def questionOne(self):
         label_1 = Label(self.frame, text="Question 1", width=20, font=("bold", 30))
-        label_2 = Label(self.frame, text="How are you feeling today?", width=20, font=("bold", 30))
+        label_2 = Label(self.frame, text="How are you feeling today?", width=20, font=("bold", 15))
         label_1.pack(pady=1)
         label_2.pack(pady=2)
 
@@ -51,7 +51,7 @@ class DailyCheckInView(BasicView):
 
     def questionTwo(self):
         label_1 = Label(self.frame, text="Question 2", width=20, font=("bold", 30))
-        label_2 = Label(self.frame, text="Are you well rested?", width=20, font=("bold", 30))
+        label_2 = Label(self.frame, text="Are you well rested?", width=20, font=("bold", 15))
         label_1.pack(pady=1)
         label_2.pack(pady=2)
 
@@ -69,7 +69,7 @@ class DailyCheckInView(BasicView):
 
     def questionThree(self):
         label_1 = Label(self.frame, text="Question 3", width=20, font=("bold", 30))
-        label_2 = Label(self.frame, text="Can you push yourself?", width=20, font=("bold", 30))
+        label_2 = Label(self.frame, text="Can you push yourself?", width=20, font=("bold", 15))
         label_1.pack(pady=1)
         label_2.pack(pady=2)
 

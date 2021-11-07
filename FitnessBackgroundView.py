@@ -3,7 +3,6 @@ from tkinter import *
 
 import colours
 from BasicView import BasicView
-from colours import LIGHTBLUE
 
 
 class FitnessBackgroundView(BasicView, ABC):
@@ -23,8 +22,8 @@ class FitnessBackgroundView(BasicView, ABC):
             self.selectedLevel = value_inside.get()
 
         self.window = self.createWindow()
-        self.window.config(padx=50, pady=50, bg=LIGHTBLUE)
-        frame = Frame(self.window)
+        self.window.config(padx=50, pady=50, bg=colours.PURPLE)
+        frame = Frame(self.window, bg=colours.PURPLE)
         frame.pack(side="top", expand=True, fill=BOTH)
         label_0 = Label(frame, text="Exercise Survey", width=20, font=("bold", 20))
         label_0.pack(pady=1)
