@@ -14,7 +14,7 @@ class BasicView:
             window = Toplevel(self.mainWindow)
         else:
             window = Tk()
-        window.geometry(f"{self.windowSizeX}x{self.windowSizeY}")
+        window.geometry(f"{self.windowSizeX}x{self.windowSizeY}+1000+400")
         window.title(self.windowTitle)
         return window
 

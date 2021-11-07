@@ -2,6 +2,7 @@ from tkinter import *
 
 from BasicView import BasicView
 from ExerciseLogic import ExerciseLogic
+from colours import LIGHTBLUE
 
 
 class DailyCheckInView(BasicView):
@@ -22,6 +23,7 @@ class DailyCheckInView(BasicView):
 
     def getDailyWindow(self):
         self.window = self.createWindow()
+        self.window.config(padx=50, pady=50, bg=LIGHTBLUE)
 
         self.frame = Frame(self.window)
         self.frame.pack(side="top", expand=True, fill=BOTH)
@@ -100,12 +102,19 @@ class DailyCheckInView(BasicView):
         level = self.exerciseLogic.exerciseLevel
         exercise = self.exerciseLogic.assignExercise()
         popup = self.createWindow()
-        self.frame = Frame(self.window)
-        label_1 = Label(self.frame, text="Your exercise level is " + level, width=20, font=("bold", 30))
-        label_2 = Label(self.frame, text="Your daily exercise is " + exercise, width=20, font=("bold", 30))
+        self.frame = Frame(popup)
+        self.frame.pack(side="top", expand=True, fill=BOTH)
+        label_1 = Label(self.frame, text="Your exercise level is", width=20, font=("bold", 30))
+        label_2 = Label(self.frame, text=level, width=20, font=("bold", 30), fg="blue")
+        label_3 = Label(self.frame, text="Your daily exercise is", width=20, font=("bold", 30))
+        label_4 = Label(self.frame, text=exercise, width=20, font=("bold", 30), fg="red")
         label_1.pack(pady=1)
         label_2.pack(pady=2)
+        label_3.pack(pady=3)
+        label_4.pack(pady=4)
 
-        bad = Button(self.frame, text='Bad', bg="#000000", font=("bold", 30),
-                     command=lambda: self.writeAnswerOne("bad"))
-        bad.pack(pady=3)
+        exitBtn = Button(self.frame, text='Exit', bg="#000000", font=("bold", 30),
+                         command=popup.destroy)
+        exitBtn.pack(pady=3)
+
+        self.frame.place()
